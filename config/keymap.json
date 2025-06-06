@@ -1,0 +1,16 @@
+{
+  "keyboard": "unknown",
+  "keymap": "unknown",
+  "layout": "unknown",
+  "layer_names": [
+    "default"
+  ],
+  "layers": [
+    [
+       "&bt BT_CLR", "&bt BT_SEL",  "&none",  "&none",  "&none",  "&none",  "&none",  "&none",  "&none",  "&none",  "&none",  "&none",
+            "&none",      "&none",  "&none",  "&none",  "&none",  "&none",  "&none",  "&none",  "&none",  "&none",  "&none",  "&none",
+            "&none",      "&none",  "&none",  "&none",  "&none",  "&none",  "&none",  "&none",  "&none",  "&none",  "&none",  "&none",
+            "&none",      "&none",  "&none",  "&none",  "&none",  "&none",  "&none",  "&none",  "&none",  "&none"
+    ]
+  ]
+}
