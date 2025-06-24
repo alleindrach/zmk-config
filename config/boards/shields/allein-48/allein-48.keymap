@@ -94,20 +94,8 @@
                        = < &rgb_ind RGB_IND_TOGGLE>
                        ;
                };
-               mo_num: mo_num {
-                  compatible = "zmk,behavior-macro";
-                  #binding-cells = <0>;
-                  bindings
-                      = < &mo NUM_LAYER>
-                      ;
-              };
-               to_num: to_num {
-                   compatible = "zmk,behavior-macro";
-                   #binding-cells = <0>;
-                   bindings
-                       = < &to NUM_LAYER>
-                       ;
-               };
+              
+              
                to_default: to_default {
                    compatible = "zmk,behavior-macro";
                    #binding-cells = <0>;
@@ -201,13 +189,7 @@
                   flavor = "hold-preferred";
                   bindings = <&kp>, <&kp>;
               };
-               hht_num: hht_num {
-                   compatible = "zmk,behavior-hold-tap";
-                   #binding-cells = <2>;
-                   tapping-term-ms = <2000>;
-                   flavor = "hold-preferred";
-                   bindings = <&mo_num>, <&kp>;
-               };
+              
                hht_input: hht_shift_input {
                   compatible = "zmk,behavior-hold-tap";
                   #binding-cells = <2>;
@@ -224,25 +206,26 @@
                };
        
                ht_bt1: hold_tap_macro_bt1 {
-                   compatible = "zmk,behavior-hold-tap";
-                   #binding-cells = <2>;
-                   tapping-term-ms = <2000>;
-                   flavor = "tap-preferred";
-                   bindings = <&bt_1>, <&kp>;
-               };
+                    compatible = "zmk,behavior-hold-tap";
+                    #binding-cells = <2>;  // 支持 1 个参数（短按的键值）
+                    tapping-term-ms = <2000>;
+                    flavor = "tap-preferred";
+                    bindings = <&bt_1>, <&kp>;  // 短按直接绑定到 &kp
+                };
+
                ht_bt2: hold_tap_macro_bt2 {
                    compatible = "zmk,behavior-hold-tap";
                    #binding-cells = <2>;
                    tapping-term-ms = <2000>;
                    flavor = "tap-preferred";
-                   bindings = <&bt_2>, <&kp>;
+                   bindings = <&bt_2>, <&key_X>;
                };
                ht_bt3: hold_tap_macro_bt3 {
                    compatible = "zmk,behavior-hold-tap";
                    #binding-cells = <2>;
                    tapping-term-ms = <2000>;
                    flavor = "tap-preferred";
-                   bindings = <&bt_3>, <&kp>;
+                   bindings = <&bt_3>, <&key_C>;
                };
                ht_bt_loop: hold_tap_macro_btloop {
                    compatible = "zmk,behavior-hold-tap";
@@ -256,14 +239,14 @@
                    #binding-cells = <2>;
                    tapping-term-ms = <2000>;
                    flavor = "tap-preferred";
-                   bindings = <&bt_clr>, <&kp>;
+                   bindings = <&bt_clr>, <&key_V>;
                };
                ht_bt_clr_all: hold_tap_macro_bt_clr_all {
                    compatible = "zmk,behavior-hold-tap";
                    #binding-cells = <2>;
                    tapping-term-ms = <2000>;
                    flavor = "tap-preferred";
-                   bindings = <&bt_clr_all>, <&kp>;
+                   bindings = <&bt_clr_all>, <&key_B>;
                };
                ht_ug_tog: hold_tap_macro_ug_tog {
                    compatible = "zmk,behavior-hold-tap";
@@ -284,21 +267,16 @@
                   #binding-cells = <2>;
                   tapping-term-ms = <3000>;
                   flavor = "hold-preferred";
-                  bindings = <&bootloader>, <&kp>;
+                  bindings = <&bootloader>, <&key_D>;
                 };
                ht_reset: ht_reset {
                 compatible = "zmk,behavior-hold-tap";
                 #binding-cells = <2>;
                 tapping-term-ms = <3000>;
                 flavor = "hold-preferred";
-                bindings = <&sys_reset>, <&kp>;
+                bindings = <&sys_reset>, <&key_F>;
                 };
-                mo_ctrl_or_tp: mo_ctrl_or_tp {
-                    compatible = "zmk,behavior-mod-morph";
-                    #binding-cells = <0>;
-                    bindings = <&mo CONTROL_LAYER>, <&mo MOUSE_TP_SET>;
-                   mods = <(MOD_LCTL)>;
-                };
+             
                semi_bracket: semi_bracket {
                    compatible = "zmk,behavior-mod-morph";
                    #binding-cells = <0>;
@@ -311,12 +289,7 @@
                    bindings = <&kp SINGLE_QUOTE>, <&kp RIGHT_BRACKET>;
                    mods = <(MOD_LCTL|MOD_LGUI)>;
                };
-               td_spc_num: tap_dance_space_or_number_layer {
-                  compatible = "zmk,behavior-tap-dance";
-                  #binding-cells = <0>;
-                  tapping-term-ms = <200>;
-                  bindings = <&kp SPACE>, <&to NUM_LAYER>;
-              };
+              
               td_spc_dft: tap_dance_space_or_default_layer {
                   compatible = "zmk,behavior-tap-dance";
                   #binding-cells = <0>;
@@ -447,7 +420,7 @@
                   compatible = "zmk,behavior-mod-morph";
                   #binding-cells = <0>;
                   bindings = <&kp BACKSPACE>, <&kp DEL>;
-                  mods = <(MOD_LGUI)>;
+                  mods = <(MOD_LGUI|MOD_LSFT)>;
               }; 
               mod_lshft_uarr_pgup: mod_lshft_uarr_pgup {
                   compatible = "zmk,behavior-mod-morph";
@@ -487,7 +460,7 @@
                     // ├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤
                                 &trans                  &trans                  &trans                   &ht_boot 0 D            &ht_reset 0 F               &trans               &kp LEFT_BRACKET         &kp RIGHT_BRACKET         &kp BACKSLASH           &kp SINGLE_QUOTE           &trans                       &trans
                     // ├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤
-                                &kp LSHFT               &ht_bt1  0 Z             &ht_bt2 0 X             &ht_bt3 0 C              &ht_bt_clr  0  V        &ht_bt_clr_all 0 B          &kp MINUS              &kp EQUAL                  &kp COMMA               &kp DOT             &mod_lshft_uarr_pgup        &input_toggle
+                                &kp LSHFT               &ht_bt1  0 Z        &ht_bt2 0 X             &ht_bt3 0 C              &ht_bt_clr  0  V        &ht_bt_clr_all 0 B          &kp MINUS              &kp EQUAL                  &kp COMMA               &kp DOT             &mod_lshft_uarr_pgup        &input_toggle
                     // ├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┴────────────────────────┼────────────────────────┴────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤
                                 &trans                  &none                   &trans                  &trans                      &trans                   &trans                    &trans                &kp SPACE                 &kp SLASH           &mod_lshft_larr_home      &mod_lshft_darr_pgdn     &mod_lshft_rarr_end
                     // ╰────────────────────────┴────────────────────────┴────────────────────────┴────────────────────────┴─────────────-────────────-────────────-─────────┴────────────────────────-────────────────────────┴────────────────────────┴────────────────────────┴────────────────────────┴────────────────────────╯
