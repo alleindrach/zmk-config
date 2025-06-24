@@ -1,6 +1,6 @@
 file_format: "1"
-id: alleindrach
-name: alleindrach
+id: allein-48
+name: allein-48
 type: shield
 url: https://github.com/foostan/crkbd/
 requires: [pro_micro]

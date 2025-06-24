@@ -4,9 +4,9 @@
  * SPDX-License-Identifier: MIT
  */
 
- #include "alleindrach.dtsi"
-
-//  #if IS_ENABLED(CONFIG_ZMK_HAS_TRACKPOINT)
+ #include "allein-48.dtsi"
+#define ZMK_HAS_TRACKPOINT  0
+#if defined(ZMK_HAS_TRACKPOINT)
 //  x
 /*
  * PS/2 Mouse / Trackpoint - User Configuration
@@ -480,10 +480,11 @@
     };
 
 #endif
-// #endif 
+
+#endif 
 
 / {
-// #if IS_ENABLED(CONFIG_ZMK_HAS_TRACKPOINT)
+#if defined(ZMK_HAS_TRACKPOINT)
     mouse_ps2: mouse_ps2 {
 		status = "disabled";
         compatible = "zmk,input-mouse-ps2";
@@ -510,7 +511,7 @@
 		// are adjusted in...
 		// zmk-config/config/includes/mouse_tp.dtsi
     };
-// #endif 
+#endif 
     rgb_indicators: rgb_indicators {
         compatible  = "zmk,rgb-indicators";
         capslock    = <0>;
