@@ -5,8 +5,8 @@
  */
 
  #include "allein-46.dtsi"
-#define ZMK_HAS_TRACKPOINT  1
-#if defined(ZMK_HAS_TRACKPOINT)
+
+//  #if IS_ENABLED(CONFIG_ZMK_HAS_TRACKPOINT)
 //  x
 /*
  * PS/2 Mouse / Trackpoint - User Configuration
@@ -39,7 +39,7 @@
 // nice!nano clone or a seeduino xiao.
 //
 // In all other cases you should try using the UART driver first.
-#define MOUSE_PS2_DRIVER_UART
+//#define MOUSE_PS2_DRIVER_UART
 
 // Configure the SCL and SDA pins using the`&pro_micro` notation.
 //
@@ -480,11 +480,10 @@
     };
 
 #endif
-
-#endif 
+// #endif 
 
 / {
-#if defined(ZMK_HAS_TRACKPOINT)
+// #if IS_ENABLED(CONFIG_ZMK_HAS_TRACKPOINT)
     mouse_ps2: mouse_ps2 {
 		status = "disabled";
         compatible = "zmk,input-mouse-ps2";
@@ -511,7 +510,7 @@
 		// are adjusted in...
 		// zmk-config/config/includes/mouse_tp.dtsi
     };
-#endif 
+// #endif 
     rgb_indicators: rgb_indicators {
         compatible  = "zmk,rgb-indicators";
         capslock    = <0>;

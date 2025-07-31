@@ -8,7 +8,7 @@
 #
 # So, you need to define that the central side is the one to which the
 # pointing device is connected to.
-if SHIELD_ALLEIN
+if SHIELD_ALLEINDRACH
 
 config ZMK_KEYBOARD_NAME
     default "allein-46"
