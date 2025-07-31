@@ -20,3 +20,5 @@
 include:
   - board: nice_nano_v2
     shield: allein-48
+  - board: nice_nano_v2
+    shield: allein-46
