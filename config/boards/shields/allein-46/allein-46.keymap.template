@@ -10,6 +10,8 @@
  #include <dt-bindings/zmk/bt.h> 
  #include <dt-bindings/zmk/rgb.h>
  #include <dt-bindings/zmk/indicator.h>
+ #include "include/mouse_tp.dtsi"
+
   {{behaviour_includes}}
 #define BASE 0
 #define LOWER 1
