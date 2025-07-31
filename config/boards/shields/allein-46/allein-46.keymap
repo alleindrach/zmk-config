@@ -23,7 +23,7 @@
 #define DEFAULT_LAYER 0
 #define CONTROL_LAYER 1
 #define MOUSE_TP 2
-
+#define NUM_LAYER  99
 #include "include/mouse_tp.dtsi"
 #include <behaviors/mouse_keys.dtsi>
 #include <behaviors/mouse_mode.dtsi>
