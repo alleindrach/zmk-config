@@ -12,19 +12,18 @@
  #include <dt-bindings/zmk/indicator.h>
 #define HAS_MOUSE_KEYS
 #define HAS_MOUSE_TP
- #include "include/mouse_tp.dtsi"
-
   {{behaviour_includes}}
 #define BASE 0
 #define LOWER 1
 #define RAISE 2
+
 #define DEFAULT_LAYER 0
-#define NUM_LAYER 1
-#define CONTROL_LAYER 2
-#define MOUSE_TP 3
-#define MOUSE_TP_SET 4
+#define CONTROL_LAYER 1
+#define MOUSE_TP 2
 
-
+#include "include/mouse_tp.dtsi"
+#include <behaviors/mouse_keys.dtsi>
+#include <behaviors/mouse_mode.dtsi>
 
 /*
  * Defines to enable/disable features
